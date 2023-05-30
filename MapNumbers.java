@@ -49,6 +49,13 @@ public class MapNumbers {
     private int[] sorted(int[] numbers, int number) {
         //sort, it's a hack
         Arrays.sort(numbers);
+        //common situations
+        if (numbers[numbers.length - 1] < number) {
+            return new int[]{0, numbers.length};
+        }
+        if (numbers[0] > number) {
+            return new int[]{numbers.length, 0};
+        }
         //get pointers
         int left = 0,
                 right = numbers.length - 1;
