@@ -58,8 +58,14 @@ public class MapNumbers {
         }
         //get pointer
         int left = 0;
-        //our number are greater
-        while (numbers[left] <= number) {
+        //get our array
+        while (left < numbers.length) {
+            //if next number grater
+            if(numbers[left] > number){
+                //exit
+                break;
+            }
+            //inc
             left++;
         }
         //return
