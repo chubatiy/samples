@@ -49,13 +49,10 @@ public class MapNumbers {
     private int[] sorted(int[] numbers, int number) {
         //sort, it's a hack
         Arrays.sort(numbers);
-        //get pointers
-        int left = 0,
-                right = numbers.length - 1;
-        //while left != tight
-        while (left != right
-                //our number are greater
-                && number > numbers[left++]) {
+        //get pointer
+        int left = 0;
+        //our number are greater
+        while (number > numbers[left++]) {
         }
         //return
         return new int[]{numbers.length - left, left};
