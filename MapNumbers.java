@@ -47,26 +47,22 @@ public class MapNumbers {
     }
 
     private int[] sorted(int[] numbers, int number) {
-        //sort, it's a hack
-        Arrays.sort(numbers);
-        //common situations
-        if (numbers[numbers.length - 1] < number) {
-            return new int[]{0, numbers.length};
-        }
-        if (numbers[0] > number) {
-            return new int[]{numbers.length, 0};
-        }
-        //get pointer
-        int left = 0;
-        //get our array
-        while (left < numbers.length) {
-            //if next number grater
-            if(numbers[left] > number){
-                //exit
-                break;
+        //get pointers
+        int left = 0,
+                right = numbers.length - 1;
+        //while pointers are less
+        while (left <= right) {
+            //calc mid
+            int mid = (left + right) / 2;
+            //if number equal or greater
+            if (number >= numbers[mid]) {
+                //move left
+                left = mid + 1;
+                //in other hand move right
+            } else {
+                right = mid - 1;
             }
-            //inc
-            left++;
+
         }
         //return
         return new int[]{numbers.length - left, left};
