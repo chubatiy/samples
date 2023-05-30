@@ -49,25 +49,16 @@ public class MapNumbers {
     private int[] sorted(int[] numbers, int number) {
         //sort, it's a hack
         Arrays.sort(numbers);
-        //used binary search
+        //get pointers
         int left = 0,
-                right = numbers.length - 1,
-                middle = 0;
+                right = numbers.length - 1;
         //while left != tight
-        while (left <= right
-                //and not founded our number
-                && number != numbers[middle]) {
-            //calculate mid
-            middle = (right + left) / 2;
-            //check value and modify left or right
-            if (number < numbers[middle]) {
-                right = middle - 1;
-            } else if (number > numbers[middle]) {
-                left = middle + 1;
-            }
+        while (left != right
+                //our number are greater
+                && number > numbers[left++]) {
         }
         //return
-        return new int[]{numbers.length - middle, middle};
+        return new int[]{numbers.length - left, left};
     }
 
 }
