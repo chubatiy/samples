@@ -38,6 +38,7 @@ public class MyCustomCache<T> implements Cache<T> {
         }
         //add new value
         this.holder.put(key, value);
+        //remove key
         this.keys.add(key);
     }
 
